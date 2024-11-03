@@ -1,19 +1,21 @@
 <?php
 
+use App\Http\Controllers\CartHomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutHomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductHomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::name('product.')->prefix('product')->group(function () {
-    Route::get('/{slug}', [HomeController::class, 'detailProduct'])->name('detail');
-    Route::post('/{id}/cart', [HomeController::class, 'storeCart'])->middleware('auth')->name('cart');
-});
+Route::resource('product', ProductHomeController::class);
+Route::resource('cart', CartHomeController::class);
+Route::resource('checkout', CheckoutHomeController::class);
 
 Route::name('dashboard.')->prefix('dashboard')->middleware(['auth'])->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('index');

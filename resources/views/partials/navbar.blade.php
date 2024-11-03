@@ -1,24 +1,14 @@
 <header class="header-sticky header-absolute">
-  <!-- Logo Nav START -->
   <nav class="navbar navbar-expand-xl">
     <div class="container">
-      <!-- Logo START -->
-      <a class="navbar-brand me-5" href="index.html">
+      <a class="navbar-brand me-5" href="/">
         <img class="light-mode-item navbar-brand-item" src="{{ asset('images/logo.svg') }}" alt="logo">
       </a>
-      <!-- Logo END -->
 
-      <!-- Main navbar START -->
       <div class="navbar-collapse collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll dropdown-hover">
-
-          <!-- Nav item -->
           <li class="nav-item"> <a class="nav-link" href="contact-v1.html">Pria</a> </li>
-
-          <!-- Nav item -->
           <li class="nav-item"> <a class="nav-link" href="contact-v1.html">Wanita</a> </li>
-
-          <!-- Nav item -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside"
               aria-haspopup="true" aria-expanded="false">Anak</a>
@@ -29,11 +19,8 @@
           </li>
         </ul>
       </div>
-      <!-- Main navbar END -->
 
-      <!-- Buttons -->
       <ul class="nav align-items-center dropdown-hover ms-sm-2">
-        <!-- Search -->
         <li class="nav-item flex-nowrap align-items-center ms-3 d-none d-md-block">
           <form class="position-relative">
             <input class="form-control pe-5 bg-light" type="search" placeholder="Search" aria-label="Search">
@@ -45,16 +32,16 @@
           </form>
         </li>
 
-        <!-- Offcanvas cart menu -->
         <li class="nav-item position-relative ms-2 ms-sm-3">
-          <a class="btn btn-light border btn-round mb-0" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button"
-            aria-controls="offcanvasMenu">
-            <i class="bi bi-cart3 fa-fw" data-bs-target="#offcanvasMenu"></i>
+          <a class="btn btn-light border btn-round mb-0" href="{{ route('cart.index') }}">
+            <i class="bi bi-cart3 fa-fw"></i>
           </a>
-          <span
-            class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-primary mt-xl-2 ms-n1">2
-            <span class="visually-hidden">unread messages</span>
-          </span>
+          @if ($cartCount != 0)
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge smaller rounded-circle bg-primary mt-xl-2 ms-n1">{{ $cartCount }}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          @endif
         </li>
 
         <li class="nav-item">
@@ -70,7 +57,6 @@
           @endauth
         </li>
 
-        <!-- Responsive navbar toggler -->
         <li class="nav-item">
           <button class="navbar-toggler ms-3 p-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -86,5 +72,4 @@
 
     </div>
   </nav>
-  <!-- Logo Nav END -->
 </header>

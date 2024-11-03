@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from mizzle.webestica.com/index-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Sep 2024 07:25:29 GMT -->
-
 <head>
-
   <title>Zalfeet - Shoes Store</title>
 
-  <!-- Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Webestica.com">
@@ -32,6 +28,8 @@
   <!-- Theme CSS -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+
+  @vite(['resources/js/app.js'])
 </head>
 
 <body>
@@ -57,7 +55,5 @@
   <script src="{{ asset('js/functions.js') }}"></script>
 
 </body>
-
-<!-- Mirrored from mizzle.webestica.com/index-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Sep 2024 07:25:34 GMT -->
 
 </html>

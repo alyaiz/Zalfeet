@@ -21,9 +21,9 @@ class OrderItem extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function size()
+    public function stock()
     {
-        return $this->belongsTo(Size::class);
+        return $this->belongsTo(Stock::class);
     }
 
     public function reviews()
