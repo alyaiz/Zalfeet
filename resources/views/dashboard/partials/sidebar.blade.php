@@ -8,13 +8,6 @@
     </li>
 
     {{-- <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fa-light fa-users menu-icon"></i>
-                <span class="menu-title">Pengguna</span>
-            </a>
-        </li> --}}
-
-    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#pengguna" aria-expanded="false" aria-controls="charts">
         <i class="fa-light fa-users menu-icon"></i>
         <span class="menu-title">Pengguna</span>
@@ -28,8 +21,7 @@
           </li>
         </ul>
       </div>
-    </li>
-
+    </li> --}}
 
     <li class="nav-item @if (request()->routeIs('dashboard.product.*')) active @endif">
       <a class="nav-link" data-toggle="collapse" href="#praktikum" aria-expanded="false" aria-controls="charts">
@@ -45,6 +37,13 @@
           </li>
         </ul>
       </div>
+    </li>
+
+    <li class="nav-item @if (request()->routeIs('dashboard.sale.*')) active @endif">
+      <a class="nav-link" href="{{ route('dashboard.sale.index') }}">
+        <i class="fa-light fa-cart-shopping menu-icon"></i>
+        <span class="menu-title">Penjualan</span>
+      </a>
     </li>
   </ul>
 </nav>

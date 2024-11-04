@@ -61,11 +61,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         try {
-            $validate_data = $request->validate([
+            $validateData = $request->validate([
                 'name' => 'required|string',
             ]);
 
-            $category = Category::create($validate_data);
+            $category = Category::create($validateData);
 
             return redirect()->back()->with('success', 'Category created successfully.');
         } catch (\Exception $e) {
@@ -95,13 +95,13 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $validate_data = $request->validate([
+            $validateData = $request->validate([
                 'name' => 'required|string',
             ]);
 
             $category = Category::findOrFail($id);
 
-            $category->update($validate_data);
+            $category->update($validateData);
 
             return redirect()->back()->with('success', 'Category updated successfully.');
         } catch (\Exception $e) {

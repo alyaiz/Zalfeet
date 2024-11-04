@@ -14,10 +14,11 @@
     </div>
     <div class="row">
       <div class="col-md-6 grid-margin stretch-card">
-        <div class="card tale-bg p-3 d-flex justify-content-start align-items-start" style="background-image: url('{{ asset($weatherBackground) }}'); background-size: cover; background-position: center;">
+        <div class="card tale-bg p-3 d-flex justify-content-start align-items-start"
+          style="background-image: url('{{ asset($weatherBackground) }}'); background-size: cover; background-position: center;">
           <div class="d-flex rounded px-2" style="backdrop-filter: blur(6px)">
             <div class="d-flex flex-column align-items-center">
-              <p class="text-white">{{ $weatherData['name'] . ", " . $weatherData['sys']['country'] }}</p>
+              <p class="text-white">{{ $weatherData['name'] . ', ' . $weatherData['sys']['country'] }}</p>
               {!! $weatherIcon !!}
               <h2 class="mb-0 text-white mt-2">{{ $tempInCelsius }}°C</h2>
               <p class="text-white mb-0 mt-1 text-capitalize">{{ $weatherData['weather'][0]['description'] }}</p>
@@ -32,7 +33,7 @@
               <div class="card-body">
                 <p class="mb-4">Total Penjualan</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <p class="fs-30 mb-0">0</p>
+                  <p class="fs-30 mb-0">{{ $totalOrders }}</p>
                   <i class="fs-30 fa-light fa-cart-shopping"></i>
                 </div>
               </div>
@@ -41,9 +42,9 @@
           <div class="col-md-6 mb-4 stretch-card transparent">
             <div class="card card-dark-blue">
               <div class="card-body">
-                <p class="mb-4">Total Pelanggan</p>
+                <p class="mb-4">Total Pengguna</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <p class="fs-30 mb-0">0</p>
+                  <p class="fs-30 mb-0">{{ $totalUsers }}</p>
                   <i class="fs-30 fa-light fa-users"></i>
                 </div>
               </div>
@@ -56,7 +57,7 @@
               <div class="card-body">
                 <p class="mb-4">Total Produk</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <p class="fs-30 mb-0">0</p>
+                  <p class="fs-30 mb-0">{{ $totalProducts }}</p>
                   <i class="fs-30 fa-light fa-boot-heeled"></i>
                 </div>
               </div>
@@ -67,7 +68,7 @@
               <div class="card-body">
                 <p class="mb-4">Total Pengunjung</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <p class="fs-30 mb-0">0</p>
+                  <p class="fs-30 mb-0">2000</p>
                   <i class="fs-30 fa-light fa-eye"></i>
                 </div>
               </div>

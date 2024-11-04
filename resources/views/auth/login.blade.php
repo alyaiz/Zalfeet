@@ -16,25 +16,7 @@
               <div class="card rounded-0 h-100" data-bs-theme="dark"
                 style="background-image: url('{{ asset('images/auth/01.jpg') }}'); background-position: center left; background-size: cover;">
                 <div class="bg-overlay bg-dark opacity-5"></div>
-                <div class="card-img-overlay z-index-2 p-7">
-                  <div class="d-flex flex-column justify-content-end h-100">
-                    <h4 class="fw-light">"Dengan keteguhan hati, mereka menavigasi kompleksitas industri, membangun
-                      kemitraan strategis, dan mendorong perubahan yang transformatif."</h4>
-                    <div class="d-flex justify-content-between mt-5">
-                      <div>
-                        <h5 class="mb-0">Emma Watson</h5>
-                        <span>Founder, catalog</span>
-                      </div>
-                      <ul class="list-inline mb-1">
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
 
@@ -43,26 +25,7 @@
                 style="background-image: url('{{ asset('images/auth/03.jpg') }}'); background-position: center left; background-size: cover;">
                 >
                 <div class="bg-overlay bg-dark opacity-5"></div>
-                <div class="card-img-overlay z-index-2 p-7">
-                  <div class="d-flex flex-column justify-content-end h-100">
-                    <h4 class="fw-light">"Seorang CEO agensi yang luar biasa adalah seorang visioner, selalu mendorong
-                      batasan kreativitas dan timnya ke tingkat yang baru. Mereka menginspirasi dengan semangat mereka dan
-                      membudayakan kepercayaan serta rasa hormat."</h4>
-                    <div class="d-flex justify-content-between mt-5">
-                      <div>
-                        <h5 class="mb-0">Carolyn Ortiz</h5>
-                        <span>CEO, mizzle</span>
-                      </div>
-                      <ul class="list-inline mb-1">
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
 
@@ -70,25 +33,7 @@
               <div class="card rounded-0 h-100" data-bs-theme="dark"
                 style="background-image: url('{{ asset('images/auth/03.jpg') }}'); background-position: center left; background-size: cover;">
                 <div class="bg-overlay bg-dark opacity-5"></div>
-                <div class="card-img-overlay z-index-2 p-7">
-                  <div class="d-flex flex-column justify-content-end h-100">
-                    <h4 class="fw-light">"Melalui kolaborasi dan arahan strategis, mereka mengarahkan agensi menuju
-                      tujuannya, menavigasi lanskap yang terus berkembang dengan ketangkasan dan keanggunan."</h4>
-                    <div class="d-flex justify-content-between mt-5">
-                      <div>
-                        <h5 class="mb-0">Dennis Barrett</h5>
-                        <span>Founder, catalog</span>
-                      </div>
-                      <ul class="list-inline mb-1">
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small me-0"><i class="fa-solid fa-star text-white"></i></li>
-                        <li class="list-inline-item small"><i class="fa-solid fa-star-half-alt text-white"></i></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
 
@@ -125,8 +70,13 @@
                 <input type="email" name="email" class="form-control" id="floatingInput"
                   placeholder="name@example.com">
                 <label for="floatingInput">Email</label>
-                {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
               </div>
+
+              @if ($errors->has('email'))
+                <div class="alert alert-danger mt-2" role="alert">
+                  {{ $errors->first('email') }}
+                </div>
+              @endif
 
               <div class="input-floating-label form-floating mb-3 position-relative">
                 <input type="password" name="password" class="form-control fakepassword pe-6" id="psw-input"
@@ -135,8 +85,13 @@
                 <span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
                   <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
                 </span>
-                {{-- <x-input-error :messages="$errors->get('password')" class="mt-2" /> --}}
               </div>
+
+              @if ($errors->has('password'))
+                <div class="alert alert-danger mt-2" role="alert">
+                  {{ $errors->first('password') }}
+                </div>
+              @endif
 
               <div class="mb-3 d-flex justify-content-between">
                 <div class="form-check">

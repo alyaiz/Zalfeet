@@ -70,44 +70,50 @@
     <section class="pt-0">
       <div class="container">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-          <h3>What's trending now</h3>
-          <a class="icon-link icon-link-hover text-body-secondary text-primary-hover" href="#">See all
-            products<i class="bi bi-arrow-right"></i> </a>
+          <h3>Produk terbaru</h3>
+          <a class="icon-link icon-link-hover text-body-secondary text-primary-hover"
+            href="{{ route('product.index') }}">Lihat semua produk<i class="bi bi-arrow-right"></i> </a>
         </div>
 
         <div class="row g-4 g-sm-5">
-          @foreach ($products as $item)
-            <div class="col-sm-6 col-lg-4 col-xl-3">
+          @if ($products->isEmpty())
+            <div class="d-flex justify-content-center w-100">
+              <img src="{{ asset('images/empty.png') }}" alt="empty" class="image-empty ">
+            </div>
+          @else
+            @foreach ($products as $item)
+              <div class="col-sm-6 col-lg-4 col-xl-3">
 
-              <div class="card border bg-transparent overflow-hidden p-0 h-100">
-                <div class="position-absolute top-0 start-0 p-3">
-                  <span class="badge text-bg-dark">Featured</span>
-                </div>
+                <div class="card border bg-transparent overflow-hidden p-0 h-100">
+                  <div class="position-absolute top-0 start-0 p-3">
+                    <span class="badge text-bg-dark">Sepatu</span>
+                  </div>
 
-                <div class="card-header bg-light rounded m-2">
-                  @if (!empty($item->images) && isset($item->images[0]->image_url))
-                    <img src="{{ asset('storage/image-filepond/' . $item->images[0]->image_url) }}" alt="">
-                  @endif
-                </div>
+                  <div class="card-header bg-light rounded m-2">
+                    @if (!empty($item->images) && isset($item->images[0]->image_url))
+                      <img src="{{ asset('storage/image-filepond/' . $item->images[0]->image_url) }}" alt="">
+                    @endif
+                  </div>
 
-                <div class="card-body pb-0">
-                  <h6 class="card-title"><a href="{{ route('product.show', ['product' => $item->slug]) }}"
-                      class="stretched-link">{{ $item->name }}</a></h6>
-                  <ul class="list-inline">
-                    <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                    <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                    <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                    <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                    <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                  </ul>
-                </div>
+                  <div class="card-body pb-0">
+                    <h6 class="card-title"><a href="{{ route('product.show', ['product' => $item->slug]) }}"
+                        class="stretched-link">{{ $item->name }}</a></h6>
+                    <ul class="list-inline">
+                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                      <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                    </ul>
+                  </div>
 
-                <div class="card-footer bg-transparent d-flex justify-content-between align-items-center pt-0">
-                  <p class="fw-bold text-success mb-0"> {{ 'Rp ' . number_format($item->price, 0, ',', '.') }}</p>
+                  <div class="card-footer bg-transparent d-flex justify-content-between align-items-center pt-0">
+                    <p class="fw-bold text-success mb-0"> {{ 'Rp ' . number_format($item->price, 0, ',', '.') }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          @endforeach
+            @endforeach
+          @endif
         </div>
       </div>
     </section>

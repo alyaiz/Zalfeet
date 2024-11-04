@@ -33,21 +33,13 @@
                         <label class="position-relative me-2" title="Replace this pic">
                           <span class="avatar avatar-xl">
                             <img class="avatar-img rounded-circle border border-white border-3 shadow"
-                              src="{{ asset('images/avatar/07.jpg') }}" alt="">
+                              src="{{ asset('images/profil-df.png') }}" alt="">
                           </span>
                         </label>
                         <label class="btn btn-sm btn-dark mb-0">Ubah</label>
                         <input class="form-control d-none" type="file">
                       </div>
                     </div>
-
-                    {{-- <div class="col-12">
-                      <label class="form-label">Full name</label>
-                      <div class="input-group">
-                        <input type="text" class="form-control" value="Jacqueline" placeholder="First name">
-                        <input type="text" class="form-control" value="Miller" placeholder="Last name">
-                      </div>
-                    </div> --}}
 
                     <div class="col-md-6">
                       <label class="form-label">Nama</label>
@@ -61,55 +53,6 @@
                         placeholder="Email anda">
                     </div>
 
-                    {{-- <div class="col-md-6">
-                      <label class="form-label">Nationality</label>
-                      <select class="form-select">
-                        <option value="">Select your country</option>
-                        <option>USA</option>
-                        <option selected>Paris</option>
-                        <option>India</option>
-                        <option>UK</option>
-                      </select>
-                    </div> --}}
-
-                    {{-- <div class="col-md-6">
-                      <label class="form-label">Select Gender</label>
-                      <div class="input-group">
-                        <div class="form-control">
-                          <div class="form-check radio-bg-light">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                              checked="">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              Male
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="form-control">
-                          <div class="form-check radio-bg-light">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              Female
-                            </label>
-                          </div>
-                        </div>
-
-                        <div class="form-control">
-                          <div class="form-check radio-bg-light">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                            <label class="form-check-label" for="flexRadioDefault3">
-                              Others
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div> --}}
-
-                    {{-- <div class="col-12">
-                      <label class="form-label">Address</label>
-                      <textarea class="form-control" rows="3" spellcheck="false">2119 N Division Ave, New Hampshire, York, United States</textarea>
-                    </div> --}}
-
                     <div class="col-12 text-end">
                       <button type="submit" class="btn btn-primary mb-0">Simpan</button>
                     </div>
@@ -118,31 +61,6 @@
                 </div>
               </div>
             </form>
-
-            {{-- <div class="text-center my-5"><i class="bi bi-three-dots"></i></div> --}}
-
-            {{-- <form>
-              <div class="card bg-transparent p-0">
-                <div class="card-header bg-transparent border-bottom px-0">
-                  <h6 class="mb-0">Update email</h6>
-                </div>
-
-                <div class="card-body px-0">
-                  <div class="mb-4">
-                    <p class="mb-4">Your current email address is <span class="text-primary">example@gmail.com</span>
-                    </p>
-                    <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" value="hello@gmail.com" placeholder="Enter your email id">
-                  </div>
-
-                  <div class="text-end">
-                    <a href="#" class="btn btn-primary mb-0">Simpan</a>
-                  </div>
-                </div>
-              </div>
-            </form> --}}
-
-            {{-- <div class="text-center my-5"><i class="bi bi-three-dots"></i></div> --}}
 
             <form method="POST" action="{{ route('password.update') }}">
               @csrf

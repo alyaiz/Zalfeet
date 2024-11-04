@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Helpers\WeatherIconsHelpers;
 use App\Helpers\WeatherBackgroundHelpers;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
@@ -25,16 +28,18 @@ class DashboardController extends Controller
         $tempInKelvin = $weatherData['main']['temp'];
         $tempInCelsius = round($tempInKelvin - 273.15);
 
-        // $totalPeminjamanLab = BookingLab::count();
-        // $totalPengguna = User::count();
-        // $totalBlog = Blog::count();
-        // $totalBlogViews = Blog::sum('view');
+        $totalOrders = Order::count();
+        $totalUsers = User::count();
+        $totalProducts = Product::count();
 
         return view('dashboard.index', compact(
             'weatherData',
             'weatherIcon',
             'weatherBackground',
             'tempInCelsius',
+            'totalOrders',
+            'totalUsers',
+            'totalProducts'
         ));
     }
 }

@@ -22,33 +22,39 @@
               @method('PUT')
               <div class="card bg-transparent p-0">
                 <div
-                  class="card-header bg-transparent border-bottom p-0 pb-3 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                  class="card-header bg-transparent border-bottom mb-3 p-0 pb-3 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
                   <h6 class="mb-0">Alamat anda</h6>
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Tambah alamat
                   </button>
                 </div>
 
-                @foreach ($address as $item)
-                  <div class="card-body px-0">
-                    <div class="row align-items-xl-center">
-                      <div class="col-12">
-                        <div class="mb-1 d-flex align-items-center gap-2">
-                          <p class="mb-0 text-dark fw-semibold">{{ $item->recipient_name }}</p>
-                          @if ($item->is_primary == true)
-                            <div class="badge text-bg-primary">Alamat utama</div>
-                          @endif
-                        </div>
-                        <p class="mb-1" style="font-size: 0.875rem">{{ $item->recipient_contact }}</p>
-                        <p class="mb-1" style="font-size: 0.875rem">{{ $item->city }}, {{ $item->province }}</p>
-                        <p class="mb-1" style="font-size: 0.875rem">{{ $item->address }}</p>
-                        <p class="mb-1" style="font-size: 0.875rem">Catatan: {{ $item->notes }}</p>
-                      </div>
-                    </div>
-
-                    <hr>
+                @if ($address->isEmpty())
+                  <div class="d-flex justify-content-center w-10 mt-5">
+                    <img src="{{ asset('images/empty.png') }}" alt="empty" class="image-empty ">
                   </div>
-                @endforeach
+                @else
+                  @foreach ($address as $item)
+                    <div class="card-body px-0 py-0">
+                      <div class="row align-items-xl-center">
+                        <div class="col-12">
+                          <div class="mb-1 d-flex align-items-center gap-2">
+                            <p class="mb-0 text-dark fw-semibold">{{ $item->recipient_name }}</p>
+                            @if ($item->is_primary == true)
+                              <div class="badge text-bg-primary">Alamat utama</div>
+                            @endif
+                          </div>
+                          <p class="mb-1" style="font-size: 0.875rem">{{ $item->recipient_contact }}</p>
+                          <p class="mb-1" style="font-size: 0.875rem">{{ $item->city }}, {{ $item->province }}</p>
+                          <p class="mb-1" style="font-size: 0.875rem">{{ $item->address }}</p>
+                          <p class="mb-1" style="font-size: 0.875rem">Catatan: {{ $item->notes }}</p>
+                        </div>
+                      </div>
+
+                      <hr>
+                    </div>
+                  @endforeach
+                @endif
               </div>
             </form>
 

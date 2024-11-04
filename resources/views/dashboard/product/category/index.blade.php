@@ -63,11 +63,10 @@
 
   <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-      <form id="add_category_form" action="{{ route('dashboard.product.category.store') }}" method="POST"
+      <form action="{{ route('dashboard.product.category.store') }}" method="POST"
         class="modal-content">
         @csrf
         <div class="modal-header align-items-center py-2">
-          <div id="messages_add" style="position: relative"></div>
           <h4 class="modal-title fs-6" id="addCategoryModalLabel">Tambah Kategori</h4>
           <button type="button" class="btn p-2" data-bs-dismiss="modal" aria-label="Close">
             <i class="ti-close mx-1 my-2"></i>
@@ -90,11 +89,10 @@
   <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
-      <form id="edit_category_form" action="" method="POST" class="modal-content">
+      <form action="" method="POST" class="modal-content">
         @csrf
         @method('PUT')
         <div class="modal-header align-items-center py-2">
-          <div id="messages_edit" style="position: relative"></div>
           <h4 class="modal-title fs-6" id="editCategoryModalLabel">Edit Kategori</h4>
           <button type="button" class="btn p-2" data-bs-dismiss="modal" aria-label="Close">
             <i class="ti-close mx-1 my-2"></i>
@@ -211,28 +209,36 @@
         }
       });
     }
-    
+
     function updateCategory(id) {
       $.ajax({
         url: "/dashboard/product/category/" + id + "/edit",
         type: 'GET',
         success: function(response) {
           if (response.success) {
-            console.log(response);
-
             $('#editCategoryModal form').attr('action', "/dashboard/product/category/" + id);
 
             $('#name_edit').val(response.data.name);
 
             $('#editCategoryModal').modal('show');
+          } else {
+            Swal.fire({
+              title: 'Gagal!',
+              text: response.message,
+              icon: 'error',
+              timer: 3000,
+              timerProgressBar: true,
+            });
           }
         },
         error: function(response) {
-          $('#messages_edit').html(`
-            <div class="alert alert-danger" role="alert" x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)">
-              ${response.message}
-            </div>
-        `);
+          Swal.fire({
+            title: 'Gagal!',
+            text: response.error,
+            icon: 'error',
+            timer: 3000,
+            timerProgressBar: true,
+          });
         }
       });
     }

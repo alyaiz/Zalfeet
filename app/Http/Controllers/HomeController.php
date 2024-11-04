@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index (){
-        $products = Product::with(['images'])->get();
+    public function index()
+    {
+        $products = Product::with(['images'])->orderBy('id', 'desc')->get();
 
         return view('index', compact('products'));
     }

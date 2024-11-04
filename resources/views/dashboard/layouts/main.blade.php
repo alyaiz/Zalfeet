@@ -11,7 +11,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Dashboard</title>
 
-  <link rel="shortcut icon" href="">
+  <link rel="shortcut icon" href="{{ asset('images/icon-2.png') }}">
 
   <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
@@ -27,8 +27,6 @@
   <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
   <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
     rel="stylesheet" />
-
-  {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script> --}}
 
   <link rel="stylesheet" href="{{ asset('css/dashboard/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/dashboard/main.css') }}">

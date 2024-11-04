@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-xl-3">
   <div class="offcanvas-lg offcanvas-start h-100" tabindex="-1" id="offcanvasSidebar">
     <div class="offcanvas-header bg-light">
-      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Profil saya</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar"
         aria-label="Close"></button>
     </div>
@@ -10,7 +10,7 @@
         <div class="card-header text-center border-bottom">
           <div class="avatar avatar-xl position-relative mb-2">
             <img class="avatar-img rounded-circle border border-2 border-white"
-              src="{{ asset('images/avatar/05.jpg') }}" alt="">
+              src="{{ asset('images/profil-df.png') }}" alt="">
             <a href="{{ route('profile.index') }}"
               class="btn btn-sm btn-round btn-dark position-absolute top-50 start-100 translate-middle mt-4 ms-n3"
               data-bs-toggle="tooltip" data-bs-title="Edit profile">

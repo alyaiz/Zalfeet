@@ -9,6 +9,10 @@
     width: 25%;
 }
 
+.image-empty {
+    width: 100%;
+}
+
 .image-avatar {
     width: 2.5rem;
     height: 2.5rem;
@@ -32,6 +36,10 @@
 @media (min-width: 768px) {
     .image-cart {
         width: 100%;
+    }
+
+    .image-empty {
+        width: 60%;
     }
 }
 
