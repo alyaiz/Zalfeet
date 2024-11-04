@@ -9,6 +9,18 @@
     width: 25%;
 }
 
+.image-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.dropdown .dropdown-toggle.dropdown-toggle-custom:after {
+    content: none;
+}
+
 @media (max-width: 575.98px) {
 }
 

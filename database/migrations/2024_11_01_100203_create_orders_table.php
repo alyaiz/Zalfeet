@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('total_price');
-            $table->enum('status', ['pending', 'paid', 'shipped', 'delivered', 'canceled']);
+            $table->enum('status', ['pending', 'paid', 'shipped', 'processed', 'delivered', 'canceled']);
+            $table->string('snap_token')->nullable();
+            $table->string('midtrans_order_id')->nullable();
             $table->timestamps();
         });
     }

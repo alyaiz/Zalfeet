@@ -15,13 +15,13 @@ class ProductHomeController extends Controller
 
         $stocks = Stock::with(['size'])->where('product_id', $product->id)->get();
 
-        $orderItems = OrderItem::with('reviews')
-            ->where('product_id', $product->id)
-            ->get();
+        // $orderItems = OrderItem::with('reviews')
+        //     ->where('product_id', $product->id)
+        //     ->get();
 
-        $reviews = $orderItems->flatMap(function ($item) {
-            return $item->reviews;
-        });
+        // $reviews = $orderItems->flatMap(function ($item) {
+        //     return $item->reviews;
+        // });
 
         return view('product.index', compact('product', 'stocks'));
     }

@@ -7,16 +7,17 @@
 
       <div class="navbar-collapse collapse" id="navbarCollapse">
         <ul class="navbar-nav navbar-nav-scroll dropdown-hover">
-          <li class="nav-item"> <a class="nav-link" href="contact-v1.html">Pria</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="contact-v1.html">Wanita</a> </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item"><a class="nav-link" href="contact-v1.html">Pria</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-v1.html">Wanita</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-v1.html">Anak</a></li>
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside"
               aria-haspopup="true" aria-expanded="false">Anak</a>
             <ul class="dropdown-menu">
               <li> <a class="dropdown-item" href="contact-v1.html">Contact v.1</a></li>
               <li> <a class="dropdown-item" href="contact-v2.html">Contact v.2</a></li>
             </ul>
-          </li>
+          </li> --}}
         </ul>
       </div>
 
@@ -46,14 +47,30 @@
 
         <li class="nav-item">
           @auth
-            <form action="{{ route('logout') }}" method="POST">
-              @csrf
-              <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
-                class="btn btn-outline-primary ms-2 ms-sm-3 small">
-                Logout</a>
-            </form>
+            <a class="" href="{{ route('profile.index') }}">
+              <img src="{{ asset('images/avatar/02.jpg') }}" alt="" class="image-avatar ms-3">
+            </a>
+            {{-- <div class="dropdown">
+              <a class="nav-link dropdown-toggle dropdown-toggle-custom px-0" href="#" data-bs-toggle="dropdown"
+                data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                <img src="{{ asset('images/avatar/02.jpg') }}" alt="" class="image-avatar ms-3">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item mb-0" href="contact-v1.html">Profil</a></li>
+                <li><a class="dropdown-item mb-0" href="contact-v1.html">Alamat Pengiriman</a></li>
+                <li><a class="dropdown-item mb-0" href="contact-v1.html">Menunggu Pembayaran</a></li>
+                <li><a class="dropdown-item mb-0" href="contact-v1.html">Daftar Order</a></li>
+                <li>
+                  <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <a class="dropdown-item mb-0" href="{{ route('logout') }}"
+                      onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                  </form>
+                </li>
+              </ul>
+            </div> --}}
           @else
-            <a href="{{ route('login') }}" class="btn btn-primary ms-2 ms-sm-3 small">Login</a>
+            <a href="{{ route('login') }}" class="btn btn-primary ms-2 ms-sm-3 small">Masuk</a>
           @endauth
         </li>
 

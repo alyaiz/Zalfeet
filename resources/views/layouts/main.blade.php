@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Webestica.com">
   <meta name="description" content="Technology and Corporate Bootstrap Theme">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
@@ -51,8 +52,13 @@
   <script src="{{ asset('vendor/sticky-js/sticky.min.js') }}"></script>
   <script src="{{ asset('vendor/glightbox/js/glightbox.js') }}"></script>
 
+  <!--Cdn-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- Theme Functions -->
   <script src="{{ asset('js/functions.js') }}"></script>
+
+  @stack('scripts')
 
 </body>
 

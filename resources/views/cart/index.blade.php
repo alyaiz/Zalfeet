@@ -8,9 +8,9 @@
           class="d-flex flex-column flex-lg-row justify-content-between align-items-start md:align-items-center gap-3 w-100">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-dots pt-0 pb-0 mb-0">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">All product</a></li>
-              <li class="breadcrumb-item active" aria-current="page">My cart</li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Semua produk</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Keranjang saya</li>
             </ol>
           </nav>
 
@@ -28,7 +28,7 @@
             </div>
           @endif
         </div>
-        <h1 class="h3 mb-0 mt-3">My cart</h1>
+        <h1 class="h3 mb-0 mt-3">Keranjang saya</h1>
       </div>
     </section>
 
@@ -111,7 +111,8 @@
                   <span class="heading-color fw-normal">Total</span>
                   <span class="h6 mb-0">{{ 'Rp ' . number_format($totalPrice, 0, ',', '.') }}</span>
                 </div>
-                <div class="d-grid"><a href="#" class="btn btn-lg btn-primary mb-0">Continue to Checkout</a>
+                <div class="d-grid"><a href="{{ route('checkout.index') }}" class="btn btn-lg btn-primary mb-0">Lanjutkan
+                    ke Checkout</a>
                 </div>
               </div>
             </div>
