@@ -12,7 +12,18 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductHomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SaleController;
+use App\Mail\ConfirmationPayment;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/test-email', function () {
+    // Data contoh
+    $user = \App\Models\User::find(1); // Gantilah dengan user yang valid
+    $paymentDetails = \App\Models\Order::with(['orderItems.product', 'orderItems.stock.size'])->find(1); // Gantilah dengan order yang valid
+
+    Mail::to($user->email)->queue(new ConfirmationPayment($user, $paymentDetails));
+    return 'Email sent!';
+});
 
 Route::get('/', [HomeController::class, 'index']);
 

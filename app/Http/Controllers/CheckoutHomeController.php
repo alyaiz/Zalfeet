@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmationPayment;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Stock;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutHomeController extends Controller
 {
@@ -114,6 +117,10 @@ class CheckoutHomeController extends Controller
             $order = Order::findOrFail($id);
             $order->status = 'paid';
             $order->save();
+
+            $user = User::findOrFail($order->user_id);
+            $paymentDetails = Order::with(['orderItems.product', 'orderItems.stock.size'])->findOrFail($id);
+            Mail::to($user->email)->queue(new ConfirmationPayment($user, $paymentDetails));
 
             return response()->json(['success' => true, 'message' => 'Status berhasil terupdate.']);
         } catch (\Exception $e) {
